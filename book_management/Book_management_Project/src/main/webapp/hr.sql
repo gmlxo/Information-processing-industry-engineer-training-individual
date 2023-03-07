@@ -6,12 +6,15 @@ CREATE TABLE mem_tbl_book (
     address VARCHAR2(60)
 );
 
-INSERT INTO mem_tbl_book VALUES(100001, '¹ÚÁ¤Èñ', '2019-02-15', 'A', '°æ±â ºÐ´ç±¸ ¼­Çöµ¿');
-INSERT INTO mem_tbl_book VALUES(100002, 'ÃÖ¼±ÇÑ', '2019-03-15', 'B', '°æ±â ±ºÆ÷½Ã »êº»µ¿');
-INSERT INTO mem_tbl_book VALUES(100003, '±è¼ø¾Ö', '2019-04-17', 'A', '°æ±â ±ºÆ÷½Ã »êº»µ¿');
-INSERT INTO mem_tbl_book VALUES(100004, 'ÃÖÁ¤Çö', '2019-12-19', 'B', '°æ±â ºÐ´ç±¸ Á¤ÀÚµ¿');
-INSERT INTO mem_tbl_book VALUES(100005, '±è¿µ¸²', '2019-02-15', 'A', '°æ±â ºÐ´ç±¸ Á¤ÀÚµ¿');
-INSERT INTO mem_tbl_book VALUES(100006, '¹Ú¼¼¿µ', '2019-02-15', 'C', '°æ±â ¿ëÀÎ½Ã ¿ëÀÎµ¿');
+select custno, custname, joindate, DECODE('a', ' VIP', 'b', 'ì¼ë°˜', 'c', 'ì§ì›') from mem_tbl_book;
+--UPDATE tbl SET tbl.n = tbl.n+1
+
+INSERT INTO mem_tbl_book VALUES(100001, 'ë°•ì •í¬', '2019-02-15', 'A', 'ê²½ê¸° ë¶„ë‹¹êµ¬ ì„œí˜„ë™');
+INSERT INTO mem_tbl_book VALUES(100002, 'ìµœì„ í•œ', '2019-03-15', 'B', 'ê²½ê¸° êµ°í¬ì‹œ ì‚°ë³¸ë™');
+INSERT INTO mem_tbl_book VALUES(100003, 'ê¹€ìˆœì• ', '2019-04-17', 'A', 'ê²½ê¸° êµ°í¬ì‹œ ì‚°ë³¸ë™');
+INSERT INTO mem_tbl_book VALUES(100004, 'ìµœì •í˜„', '2019-12-19', 'B', 'ê²½ê¸° ë¶„ë‹¹êµ¬ ì •ìžë™');
+INSERT INTO mem_tbl_book VALUES(100005, 'ê¹€ì˜ë¦¼', '2019-02-15', 'A', 'ê²½ê¸° ë¶„ë‹¹êµ¬ ì •ìžë™');
+INSERT INTO mem_tbl_book VALUES(100006, 'ë°•ì„¸ì˜', '2019-02-15', 'C', 'ê²½ê¸° ìš©ì¸ì‹œ ìš©ì¸ë™');
 
 select * from mem_tbl_book;
 
@@ -33,7 +36,7 @@ INSERT INTO rent_tbl_book VALUES(10005, 1113, '2019-02-15', '2019-02-15');
 INSERT INTO rent_tbl_book VALUES(10005, 1114, '2019-02-15', '2019-02-15');
 INSERT INTO rent_tbl_book VALUES(10006, 1113, '2020-02-15', '2019-02-15');
 
-SELECT * FROM rent_tbl_book;
-
+SELECT COUNT(*) FROM rent_tbl_book WHERE custno = 10001;
+select * from rent_tbl_book;
 
 commit;

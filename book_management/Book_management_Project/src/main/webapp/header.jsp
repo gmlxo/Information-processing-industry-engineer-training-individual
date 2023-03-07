@@ -31,8 +31,8 @@
 	<div class="wapper">
 		<h1 align="center">도서 대여 관리 프로그램</h1>
 			<div class="header">
-				<div><a href="#">홈으로</a></div>
-				<div><a href="#">회원등록</a></div>
-				<div><a href="#">회원대여 현황</a></div>
-				<div><a href="#">회원목록 조회/수정</a></div>
+				<div><a href="/index.jsp">홈으로</a></div>
+				<div><a href="/book/insert.jsp">회원등록</a></div>
+				<div><a href="/book/book_select.jsp">회원대여 현황</a></div>
+				<div><a href="/book/mem_select.jsp">회원목록 조회/수정</a></div>
 			</div>

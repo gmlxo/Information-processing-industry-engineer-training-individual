@@ -26,17 +26,21 @@ CREATE TABLE rent_tbl_book (
     CONSTRAINT rent_PK PRIMARY KEY(custno, bookno)
 );
 
-INSERT INTO rent_tbl_book VALUES(10001, 1234, '2019-02-15', '2019-02-15');
-INSERT INTO rent_tbl_book VALUES(10001, 1122, '2019-02-15', '2019-02-16');
-INSERT INTO rent_tbl_book VALUES(10002, 1234, '2019-03-15', '2019-02-15');
-INSERT INTO rent_tbl_book VALUES(10003, 1234, '2019-04-17', '2019-02-15');
-INSERT INTO rent_tbl_book VALUES(10004, 1122, '2019-12-19', '2019-02-15');
-INSERT INTO rent_tbl_book VALUES(10005, 1122, '2020-02-15', '2019-02-15');
-INSERT INTO rent_tbl_book VALUES(10005, 1113, '2019-02-15', '2019-02-15');
-INSERT INTO rent_tbl_book VALUES(10005, 1114, '2019-02-15', '2019-02-15');
-INSERT INTO rent_tbl_book VALUES(10006, 1113, '2020-02-15', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100001, 1234, '2019-02-15', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100001, 1122, '2019-02-15', '2019-02-16');
+INSERT INTO rent_tbl_book VALUES(100002, 1234, '2019-03-15', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100003, 1234, '2019-04-17', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100004, 1122, '2019-12-19', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100005, 1122, '2020-02-15', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100005, 1113, '2019-02-15', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100005, 1114, '2019-02-15', '2019-02-15');
+INSERT INTO rent_tbl_book VALUES(100006, 1113, '2020-02-15', '2019-02-15');
+
+--DROP TABLE rent_tbl_book;
 
 SELECT COUNT(*) FROM rent_tbl_book WHERE custno = 10001;
 select * from rent_tbl_book;
+
+select COUNT(*), m.custno, m.custname,  from rent_tbl_book r, mem_tbl_book m where m.custno = r.custno;
 
 commit;

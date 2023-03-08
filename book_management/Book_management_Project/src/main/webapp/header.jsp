@@ -25,6 +25,10 @@
 		height: 350px;
 		border: 1px solid #000;
 	}
+	
+	.a {
+		border-bottom: 1px solid #555;
+	}
 </style>
 </head>
 <body>
@@ -33,6 +37,6 @@
 			<div class="header">
 				<div><a href="/index.jsp">홈으로</a></div>
 				<div><a href="/book/insert.jsp">회원등록</a></div>
-				<div><a href="/book/book_select.jsp">회원대여 현황</a></div>
-				<div><a href="/book/mem_select.jsp">회원목록 조회/수정</a></div>
+				<div><a href="/bookSelect">회원대여 현황</a></div>
+				<div><a href="/memberSelect">회원목록 조회/수정</a></div>
 			</div>

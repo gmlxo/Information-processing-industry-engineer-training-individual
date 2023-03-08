@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import common.JDBCUtil;
 import vo.mem_vo;
+import vo.book_rent_vo;
 import vo.mem_rent_vo;
 
 public class controlDAO {
@@ -71,25 +72,21 @@ public class controlDAO {
 		return memList;
 	}
 	
-	public ArrayList<mem_rent_vo> rent_select(int custno) {
+	public ArrayList<mem_rent_vo> mem_rent_select() {
 		ArrayList<mem_rent_vo> rentList = new ArrayList<>();
 		mem_rent_vo vo;
-		String numSQL = "SELECT COUNT(*) n FROM rent_tbl_book WHERE custno = ?";
-		ResultSet rs1 = null;
 		
 		try {
-			sql = "select custno, custname from mem_tbl_book";
+			sql = "select COUNT(*) n, m.custno, m.custname from rent_tbl_book r, mem_tbl_book m where m.custno = r.custno GROUP BY m.custno, m.custname  ORDER BY n DESC";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
 				vo = new mem_rent_vo();
-				pstmt = conn.prepareStatement(numSQL);
-				rs1 = pstmt.executeQuery();
 				
 				vo.setCustno(rs.getInt("custno"));
 				vo.setCustname(rs.getString("custname"));
-				vo.setNum(rs1.getInt("n"));
+				vo.setNum(rs.getInt("n"));
 				
 				rentList.add(vo);
 			}
@@ -99,12 +96,33 @@ public class controlDAO {
 			System.out.println("error");
 		} finally {
 			JDBCUtil.close(conn, pstmt, rs);
-			try {
-				rs1.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		}
+		return rentList;
+	}
+	
+	public ArrayList<book_rent_vo> book_rent_select() {
+		ArrayList<book_rent_vo> rentList = new ArrayList<>();
+		book_rent_vo vo;
+		
+		try {
+			sql = "select COUNT(*) n, bookno FROM rent_tbl_book GROUP BY bookno ORDER BY bookno DESC";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				vo = new book_rent_vo();
+				
+				vo.setBookno(rs.getInt("bookno"));
+				vo.setNum(rs.getInt("n"));
+				
+				rentList.add(vo);
 			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("error");
+		} finally {
+			JDBCUtil.close(conn, pstmt, rs);
 		}
 		return rentList;
 	}

@@ -1,22 +1,22 @@
 package vo;
 
-public class empListVO {
+public class joinListVO {
 	private String emp_no;
 	private String emp_name;
 	private String hire_date;
 	private String dept_name;
 	private String job;
-	private String absence;
+	private int absence;
 	private int night;
 	private int holiday;
 	private int business_trip;
 	private String salary;
 	
-	public empListVO() {
+	public joinListVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public empListVO(String emp_no, String emp_name, String hire_date, String dept_name, String job, String absence,
+	public joinListVO(String emp_no, String emp_name, String hire_date, String dept_name, String job, int absence,
 			int night, int holiday, int business_trip, String salary) {
 		super();
 		this.emp_no = emp_no;
@@ -71,11 +71,11 @@ public class empListVO {
 		this.job = job;
 	}
 
-	public String getAbsence() {
+	public int getAbsence() {
 		return absence;
 	}
 
-	public void setAbsence(String absence) {
+	public void setAbsence(int absence) {
 		this.absence = absence;
 	}
 

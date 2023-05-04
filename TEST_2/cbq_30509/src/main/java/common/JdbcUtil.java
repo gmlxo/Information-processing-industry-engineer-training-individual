@@ -6,21 +6,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class JdbcUtil {
+public class jdbcUtil {
 	public static Connection getConnection() {
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "1234");
+			conn = DriverManager.getConnection("멀봐", "이걸", "바래?ㅋ");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return conn;
 	}
-	
+
 	public static void close(Connection conn, PreparedStatement pstmt) {
-		if(conn != null) {
+		if (conn != null) {
 			try {
 				conn.close();
 			} catch (SQLException e) {
@@ -37,11 +37,11 @@ public class JdbcUtil {
 			}
 		}
 	}
-	
+
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
-		if(rs != null) {
+		if (rs != null) {
 			try {
-				rs.close();
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

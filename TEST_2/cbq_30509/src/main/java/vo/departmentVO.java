@@ -1,42 +1,62 @@
 package vo;
 
 public class departmentVO {
-	private String dept_code;
-	private String dept_name;
-	private String location;
-
+	private String emp_no;
+	private int absence;
+	private int night;
+	private int holiday;
+	private int business_trip;
+	
 	public departmentVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public departmentVO(String dept_code, String dept_name, String location) {
+	public departmentVO(String emp_no, int absence, int night, int holiday, int business_trip) {
 		super();
-		this.dept_code = dept_code;
-		this.dept_name = dept_name;
-		this.location = location;
+		this.emp_no = emp_no;
+		this.absence = absence;
+		this.night = night;
+		this.holiday = holiday;
+		this.business_trip = business_trip;
 	}
 
-	public String getDept_code() {
-		return dept_code;
+	public String getEmp_no() {
+		return emp_no;
 	}
 
-	public void setDept_code(String dept_code) {
-		this.dept_code = dept_code;
+	public void setEmp_no(String emp_no) {
+		this.emp_no = emp_no;
 	}
 
-	public String getDept_name() {
-		return dept_name;
+	public int getAbsence() {
+		return absence;
 	}
 
-	public void setDept_name(String dept_name) {
-		this.dept_name = dept_name;
+	public void setAbsence(int absence) {
+		this.absence = absence;
 	}
 
-	public String getLocation() {
-		return location;
+	public int getNight() {
+		return night;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setNight(int night) {
+		this.night = night;
+	}
+
+	public int getHoliday() {
+		return holiday;
+	}
+
+	public void setHoliday(int holiday) {
+		this.holiday = holiday;
+	}
+
+	public int getBusiness_trip() {
+		return business_trip;
+	}
+
+	public void setBusiness_trip(int business_trip) {
+		this.business_trip = business_trip;
 	}
 }

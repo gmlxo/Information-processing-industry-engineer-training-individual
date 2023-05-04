@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.mainDAO;
 
-@WebServlet("/emp_insert")
-public class emp_insert extends HttpServlet {
+@WebServlet("/update")
+public class update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public emp_insert() {
+
+    public update() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -21,26 +21,21 @@ public class emp_insert extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		
 		mainDAO dao = new mainDAO();
-		String emp_no, emp_name, dept_code, hire_date, job;
-		int salary;
+		
+		String emp_no;
+		int absence, night, holiday, business_trip;
 		
 		emp_no = request.getParameter("emp_no");
-		emp_name = request.getParameter("emp_name");
-		dept_code = request.getParameter("dept_code");
-		hire_date = request.getParameter("hire_date");
-		job = request.getParameter("job");
-		salary = Integer.valueOf(request.getParameter("salary"));
+		absence = Integer.valueOf(request.getParameter("absence"));
+		night = Integer.valueOf(request.getParameter("night"));
+		holiday = Integer.valueOf(request.getParameter("holiday"));
+		business_trip = Integer.valueOf(request.getParameter("business_trip"));
 		
-		int n = dao.empInsert(emp_no, emp_name, dept_code, hire_date, job, salary);
-	
-		if(n>0) {
-			int s = dao.workInsert(emp_no);
-			if(s>0)
-				response.sendRedirect("/empList");
-		} else
-			response.sendRedirect("/emp_insert.jsp");
+		int n = dao.update(emp_no, absence, night, holiday, business_trip);
+		
+		if(n>0)
+			response.sendRedirect("/empList");
 	}
 
 }

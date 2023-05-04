@@ -10,25 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.mainDAO;
-import vo.joinListVO;
+import vo.depListVO;
 
-@WebServlet("/empList")
-public class empList extends HttpServlet {
+@WebServlet("/depJoinList")
+public class depJoinList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public empList() {
+    public depJoinList() {
         super();
         // TODO Auto-generated constructor stub
     }
-    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		mainDAO dao = new mainDAO();
-		ArrayList<joinListVO> joinList = dao.joinList();
 		
-		request.setAttribute("joinList", joinList);
-		request.getRequestDispatcher("/joinList.jsp").forward(request, response);
+		ArrayList<depListVO> depList = dao.depJoinList();
+		
+		request.setAttribute("joinList_det", depList);
+		request.getRequestDispatcher("/depJoinList.jsp").forward(request, response);
 	}
-
 }
